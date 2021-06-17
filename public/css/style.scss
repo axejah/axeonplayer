@@ -180,3 +180,12 @@ a {
     height: 100%;
   }
 }
+
+video {
+  width: 800px;
+  height: 600px;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    height: auto;
+  }
+}
