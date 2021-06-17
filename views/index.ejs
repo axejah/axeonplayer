@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../public/css/style.css">
+  <title>Upload Video</title>
+</head>
+
+<body>
+  <form action="uploadVideo" method="post" enctype="multipart/form-data">
+
+    <h1><strong>axeoNPlayer</strong> upload your video</h1>
+
+    <div class="form-group">
+      <label for="title">Title <span>Give your video a title or short description</span></label>
+      <input type="text" name="title" id="title" class="form-control" />
+    </div>
+
+    <div class="form-group file-area">
+      <label for="video">Video <span>Max file-size is 200mb. Only webm, avi or mp4</span></label>
+      <input type="file" name="video" id="video" required="required" />
+      <div class="file-dummy">
+        <div class="success">Video selected.</div>
+        <div class="default">Please select a video</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit">Upload video</button>
+    </div>
+
+  </form>
+
+  <div class="container">
+
+    <h3>Recent videos:</h3>
+    <ul>
+      <% for(let i = 0; i < latestVideos.length; i++) { %>
+      <li><%= latestVideos[i].title %> - <a href="/playVideo/<%= latestVideos[i].uuid %>">Watch</a> </li>
+      <%} %>
+    </ul>
+  </div>
+</body>
+
+</html>
